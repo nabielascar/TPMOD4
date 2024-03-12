@@ -43,37 +43,67 @@
                     return -1;
                 }
             }
-
-            static void Main(string[] args)
+        }
+        public class DoorMachine
+        {
+            public enum Pintu
             {
-
-                KodePos kodePosObj = new KodePos();
-
-                int kode1 = kodePosObj.getKodePos("Batununggal");
-                int kode2 = kodePosObj.getKodePos("Kujangsari");
-                int kode3 = kodePosObj.getKodePos("Mengger");
-                int kode4 = kodePosObj.getKodePos("Wates");
-                int kode5 = kodePosObj.getKodePos("Cijaura");
-                int kode6 = kodePosObj.getKodePos("Jatisari");
-                int kode7 = kodePosObj.getKodePos("Margasari");
-                int kode8 = kodePosObj.getKodePos("Sekejati");
-                int kode9 = kodePosObj.getKodePos("Kebonwaru");
-                int kode10 = kodePosObj.getKodePos("Maleer");
-                int kode11 = kodePosObj.getKodePos("Samoja");
-
-                Console.WriteLine("Kode pos Batununggal: " + kode1);
-                Console.WriteLine("Kode pos Kujangsari: " + kode2);
-                Console.WriteLine("Kode pos Mengger: " + kode3);
-                Console.WriteLine("Kode pos Wates: " + kode4);
-                Console.WriteLine("Kode pos Cijaura: " + kode5);
-                Console.WriteLine("Kode pos Jatisari: " + kode6);
-                Console.WriteLine("Kode pos Margasari: " + kode7);
-                Console.WriteLine("Kode pos Sekejati: " + kode8);
-                Console.WriteLine("Kode pos Kebonwaru: " + kode9);
-                Console.WriteLine("Kode pos Maleer: " + kode10);
-                Console.WriteLine("Kode pos Samoja: " + kode11);
+                TERBUKA, TERKUNCI
             }
+        }
+        static void Main(string[] args)
+        {
+            Console.Write("Enter Command:  ");
+            string command = Console.ReadLine();
+            DoorMachine.Pintu pintu = DoorMachine.Pintu.TERKUNCI;
+            while (command != "Keluar Rumah")
+            {
+                switch (pintu)
+                {
+                    case DoorMachine.Pintu.TERBUKA:
+                        if (command == "KunciPintu")
+                        {
+                            pintu = DoorMachine.Pintu.TERKUNCI;
+                            Console.WriteLine("PINTU TERKUNCI");
+                        }
+                        break;
+                    case DoorMachine.Pintu.TERKUNCI:
+                        if (command == "BukaPintu")
+                        {
+                            pintu = DoorMachine.Pintu.TERBUKA;
+                            Console.WriteLine("PINTU TIDAK TERKUNCI");
+                        }
+                        break;
+                }
+
+                Console.Write("Enter Command:  ");
+                command = Console.ReadLine();
+            }
+            KodePos kodePosObj = new KodePos();
+
+            int kode1 = kodePosObj.getKodePos("Batununggal");
+            int kode2 = kodePosObj.getKodePos("Kujangsari");
+            int kode3 = kodePosObj.getKodePos("Mengger");
+            int kode4 = kodePosObj.getKodePos("Wates");
+            int kode5 = kodePosObj.getKodePos("Cijaura");
+            int kode6 = kodePosObj.getKodePos("Jatisari");
+            int kode7 = kodePosObj.getKodePos("Margasari");
+            int kode8 = kodePosObj.getKodePos("Sekejati");
+            int kode9 = kodePosObj.getKodePos("Kebonwaru");
+            int kode10 = kodePosObj.getKodePos("Maleer");
+            int kode11 = kodePosObj.getKodePos("Samoja");
+
+            Console.WriteLine("Kode pos Batununggal: " + kode1);
+            Console.WriteLine("Kode pos Kujangsari: " + kode2);
+            Console.WriteLine("Kode pos Mengger: " + kode3);
+            Console.WriteLine("Kode pos Wates: " + kode4);
+            Console.WriteLine("Kode pos Cijaura: " + kode5);
+            Console.WriteLine("Kode pos Jatisari: " + kode6);
+            Console.WriteLine("Kode pos Margasari: " + kode7);
+            Console.WriteLine("Kode pos Sekejati: " + kode8);
+            Console.WriteLine("Kode pos Kebonwaru: " + kode9);
+            Console.WriteLine("Kode pos Maleer: " + kode10);
+            Console.WriteLine("Kode pos Samoja: " + kode11);
         }
     }
 }
-
